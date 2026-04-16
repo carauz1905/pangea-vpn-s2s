@@ -40,6 +40,20 @@ export default function App() {
 
   const icons = [LayoutDashboard, Shield, Lock, CheckSquare, Server];
 
+  // Navigation logic
+  const scrollToRole = (idx) => {
+    let targetSlideIndex = 0;
+    if (idx === 0) targetSlideIndex = 1;      // Arquitectura
+    else if (idx === 1) targetSlideIndex = 3; // Criptografía
+    else if (idx === 2) targetSlideIndex = 5; // Autenticación
+    else if (idx === 3) targetSlideIndex = 7; // Cumplimiento
+    else if (idx === 4) targetSlideIndex = 10; // Operaciones
+    
+    // Each slide corresponds to 100vh of vertical scroll
+    const targetY = targetSlideIndex * window.innerHeight;
+    window.scrollTo({ top: targetY, behavior: 'smooth' });
+  };
+
   return (
     <>
       {/* Branding Overlay */}
@@ -106,7 +120,8 @@ export default function App() {
               return (
                 <div
                   key={idx}
-                  className={`w-10 h-10 rounded-full bg-slate-900/50 backdrop-blur flex items-center justify-center transition-all duration-300 border ${
+                  onClick={() => scrollToRole(idx)}
+                  className={`w-10 h-10 rounded-full bg-slate-900/50 backdrop-blur flex items-center justify-center transition-all duration-300 border cursor-pointer hover:bg-slate-800 pointer-events-auto ${
                     isActive 
                       ? "text-cyan-400 border-cyan-500 shadow-[0_0_15px_rgba(34,211,238,0.3)] scale-110" 
                       : "text-slate-500 border-slate-700"
