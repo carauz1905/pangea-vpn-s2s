@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cyber-black: #020617;
+  --color-cyber-card: #0f172a;
+}
+
+@layer base {
+  html {
+    font-family: 'Inter', sans-serif;
+    background-color: #020617; /* slate-950 */
+    color: #f8fafc; /* slate-50 */
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Scrollbar for better UX (optional but adds to 'cinematic' feel) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
